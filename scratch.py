@@ -12,6 +12,8 @@ clock = pygame.time.Clock()
 
 pygame.font.init()
 
+MODULO = 3
+
 finished = False
 display = pygame.display.set_mode(WINDOW_SIZE)
 
@@ -31,7 +33,7 @@ while not finished:
 
     for row_index, row in enumerate(triangle):
         for col_index, col in enumerate(row):
-            pygame.draw.rect(display, COLOR_LIST[triangle[row_index][col_index] % 3], (
+            pygame.draw.rect(display, COLOR_LIST[triangle[row_index][col_index] % MODULO], (
                 ceil(HMID - (col_index - len(row) // 2) * SQUARE_SIZE - (SQUARE_SIZE / 2) * (row_index % 2 + 1)),
                 ceil(row_index * SQUARE_SIZE),
                 ceil(SQUARE_SIZE),
